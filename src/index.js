@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import {Router, browserHistory} from 'react-router'
 import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-router-dom';
-import routeConfig from './route'
+import routeConfig from '@/route'
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 // import App from './App';

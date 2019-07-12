@@ -10,15 +10,15 @@ const routeConfig = [
   // },
   {
     path: '/scrollComp',
-    component: loadable(() => import('./views/srollTop'))
+    component: loadable(() => import('../views/srollTop'))
   },
   {
     path: '/lifeCycle',
-    component: loadable(() => import('./views/lifeCycle'))
+    component: loadable(() => import('../views/lifeCycle'))
   },
   {
     path: '/context',
-    component: loadable(() => import('./views/context'))
+    component: loadable(() => import('../views/context'))
   }
 ]
 export default routeConfig;
