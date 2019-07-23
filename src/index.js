@@ -1,32 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {Router, browserHistory} from 'react-router'
-import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-router-dom';
+import {HashRouter, Switch, Route, NavLink, Router, Prompt} from 'react-router-dom';
 import routeConfig from '@/route'
-import './index.css';
+import './index.less';
 import * as serviceWorker from './serviceWorker';
-// import App from './App';
-import willLeave from './views/willLeave';
-
-const oddEvent = (match, location) => {
-  if (!match) return false
-  return match.url === location.pathName
-}
 
 
-const refCallback = node => {
-  // console.log(node, '>>>>>node')
-}
+
+// 引入全局组件
+import { SideBar } from '@/layoutComponents';
+
+console.log('self', Router.computeRootMatch('/asd'), '>>>>>computeRootMatch')
+
 class RouterContaienr extends React.Component {
   render () {
     return (
-      <div>
-        <HashRouter>
+      <div className="app-main">
+        <SideBar className="side-bar" />
+        <HashRouter getConfirmation={(msg, cb) => {
+          const allowTransition = window.confirm(msg);
+          console.log('self', cb, allowTransition);
+          cb(allowTransition);
+        }}>
           {routeConfig.map((item) => {
             return (<NavLink exact activeStyle={{
               fontWeight: "bold",
               color: "red"
-            }} className="link" to={item.path}  key={item.path} innerRef={refCallback}>{item.path}</NavLink>)
+            }} className="link" to={item.path}  key={item.path} >{item.path}</NavLink>)
           })}
           <Switch>
             {/* <Redirect from='/lifeCycle' to='/'></Redirect> */}
@@ -37,14 +37,14 @@ class RouterContaienr extends React.Component {
               return (<Route path={item.path} component={item.component} key={item.path}></Route>)
             })}
           </Switch>
-          {/* <Route component={willLeave}></Route> */}
+          <Prompt message="queding"></Prompt>
         </HashRouter>
-        </div>
+        
+      </div>
     )
   }
   
 }
-console.log(withRouter(RouterContaienr))
 ReactDOM.render(<RouterContaienr/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -1,5 +1,6 @@
 import React from 'react';
 import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-router-dom';
+import {Theme} from '../../context'
 
  class willLeave extends React.Component {
   // static getDerivedStateFromProps (next, pre) {
@@ -9,6 +10,8 @@ import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-ro
   //     history
   //   };
   // }
+
+  static contextType = Theme
 
   constructor () {
     super();
@@ -22,7 +25,7 @@ import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-ro
   render () {
     console.log(this.props, this.state, '>>>>>>>>>willLeave--------this props');
     return (
-      <div onClick={this.toHome}>willLeave</div>
+      <div onClick={this.toHome}>willLeave{this.context}</div>
     )
   }
 

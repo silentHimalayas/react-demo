@@ -1,6 +1,7 @@
 import React from 'react';
 import Willleave from '../willLeave/index';
 import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-router-dom';
+import {Theme} from '../../context'
 
 
 class lifeCycle extends React.Component {
@@ -40,13 +41,15 @@ class lifeCycle extends React.Component {
     let {type} = this.state;
     
     return (
-      <div onClick={this.toHome}>
-        <div>{this.state.type}12312</div>
-        {/* <Switch>
-          <Route exact path='/lifeCycle/asd' component={Willleave}></Route>
-        </Switch> */}
-        <Willleave  type={type}/>
-      </div>
+      <Theme.Provider value='shuaixin'>
+        <div onClick={this.toHome}>
+          <div>{this.state.type}12312</div>
+          {/* <Switch>
+            <Route exact path='/lifeCycle/asd' component={Willleave}></Route>
+          </Switch> */}
+          <Willleave  type={type}/>
+        </div>
+      </Theme.Provider>
     )
   }
 

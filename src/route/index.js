@@ -1,9 +1,9 @@
 import loadable from '@loadable/component'
 const routeConfig = [
-  // {
-  //   path: '/',
-  //   component: loadable(() => import('./App'))
-  // },
+  {
+    path: '/',
+    component: loadable(() => import('../App'))
+  },
   // {
   //   path: '/willLeave',
   //   component: loadable(() => import('./views/willLeave'))
