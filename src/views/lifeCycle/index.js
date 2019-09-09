@@ -37,7 +37,6 @@ class lifeCycle extends React.Component {
 
   // 挂载 / 更新 阶段触发（涉及到重新渲染就触发此函数） 在 getDerivedStateFromProps 之后触发
   render () {
-    console.log(this.props, '>>>>>>>>>lifeCyvle-------------this props');
     let {type} = this.state;
     
     return (

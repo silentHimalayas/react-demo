@@ -4,42 +4,56 @@ import {HashRouter, Switch, Route, NavLink, Router, Prompt} from 'react-router-d
 import routeConfig from '@/route'
 import './index.less';
 import * as serviceWorker from './serviceWorker';
+import App from './App';
+import willLeave from './views/willLeave/index'
 
 
 
 // 引入全局组件
 import { SideBar } from '@/layoutComponents';
+const MyContext = React.createContext(1);
 
-console.log('self', Router.computeRootMatch('/asd'), '>>>>>computeRootMatch')
+
 
 class RouterContaienr extends React.Component {
   render () {
     return (
       <div className="app-main">
         <SideBar className="side-bar" />
-        <HashRouter getConfirmation={(msg, cb) => {
-          const allowTransition = window.confirm(msg);
-          console.log('self', cb, allowTransition);
-          cb(allowTransition);
-        }}>
+        {/* <HashRouter >
           {routeConfig.map((item) => {
+            return (<NavLink exact activeStyle={{
+              fontWeight: "bold",
+              color: "red"
+            }} className="link" to={item.path}  key={item.path} >{item.path}</NavLink>)
+          })} */}
+          {/* <Switch> */}
+            {/* <Redirect from='/lifeCycle' to='/'></Redirect> */}
+            {/* switch 命中的组件为第一个与路由匹配的组件，当路径为/aasd时，也会命中‘/’ App组件。 添加exact，表示只有当前路径与path完全匹配时才命中组件 */}
+            {/* <Route  path="/" component={App}></Route>
+            <Route  path="/willleave" component={willLeave}></Route> */}
+            {/* {routeConfig.map((item) => {
+              return (<Route path={item.path} component={item.component} key={item.path}></Route>)
+            })} */}
+          {/* </Switch> */}
+          {/* <Prompt message="queding"></Prompt> */}
+        {/* </HashRouter> */}
+        <HashRouter>
+        {routeConfig.map((item) => {
             return (<NavLink exact activeStyle={{
               fontWeight: "bold",
               color: "red"
             }} className="link" to={item.path}  key={item.path} >{item.path}</NavLink>)
           })}
           <Switch>
-            {/* <Redirect from='/lifeCycle' to='/'></Redirect> */}
-            {/* switch 命中的组件为第一个与路由匹配的组件，当路径为/aasd时，也会命中‘/’ App组件。 添加exact，表示只有当前路径与path完全匹配时才命中组件 */}
-            {/* <Route exact path="/" component={App}></Route>
-            <Route exact path="/willleave" component={willLeave}></Route> */}
+            <Route  path="/"  component={App}></Route>
+            <Route  path="/willleave/asd"  component={willLeave}></Route>
             {routeConfig.map((item) => {
               return (<Route path={item.path} component={item.component} key={item.path}></Route>)
             })}
           </Switch>
-          <Prompt message="queding"></Prompt>
+          
         </HashRouter>
-        
       </div>
     )
   }

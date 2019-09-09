@@ -4,10 +4,10 @@ const routeConfig = [
     path: '/',
     component: loadable(() => import('../App'))
   },
-  // {
-  //   path: '/willLeave',
-  //   component: loadable(() => import('./views/willLeave'))
-  // },
+  {
+    path: '/willLeave/asd',
+    component: loadable(() => import('../views/willLeave'))
+  },
   {
     path: '/scrollComp',
     component: loadable(() => import('../views/srollTop'))
