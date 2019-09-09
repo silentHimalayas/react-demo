@@ -1,4 +1,5 @@
 import loadable from '@loadable/component'
+// 路由配置
 const routeConfig = [
   {
     path: '/',
