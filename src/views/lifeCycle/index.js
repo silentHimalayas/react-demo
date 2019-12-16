@@ -57,9 +57,9 @@ class lifeCycle extends React.Component {
   componentDidMount (a) {
     const dom = (<div diyAttr="hahaha"></div>)
     console.log(dom, '>>>>>>>dom');
-    this.state.timer = setTimeout(() => {
-      this.setState({type: 3})
-    }, 3000);
+    // this.state.timer = setTimeout(() => {
+    //   this.setState({type: 3})
+    // }, 3000);
   }
 
 

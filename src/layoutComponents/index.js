@@ -1,5 +1,7 @@
 import SideBar from './sideBar';
+import MainContent from './mainContent';
 
 export {
-  SideBar
+  SideBar,
+  MainContent
 }

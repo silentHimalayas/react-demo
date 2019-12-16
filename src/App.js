@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import {HashRouter} from 'react-router-dom';
+import {SideBar, MainContent} from './layoutComponents'
 import './App.css';
 // asdas
 class App extends React.Component {
@@ -10,24 +11,11 @@ class App extends React.Component {
     }
   }
   render () {
-    console.log(this.props, '>>>>>>>props');
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>{this.states.title}</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <HashRouter className="app-main" >
+        <SideBar className="side-bar" />
+        <MainContent />
+      </HashRouter>
     );
   }
 }

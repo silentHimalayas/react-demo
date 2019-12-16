@@ -43,9 +43,9 @@ class scrollComp extends React.Component {
   componentDidMount (a) {
     const dom = (<div diyAttr="hahaha"></div>)
     console.log(dom, '>>>>>>>dom');
-    setTimeout(() => {
-      this.setState({nun: 3})
-    }, 3000);
+    // setTimeout(() => {
+    //   this.setState({nun: 3})
+    // }, 3000);
   }
   toHome () {
     this.props.history.goBack();
