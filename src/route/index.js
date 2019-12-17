@@ -27,18 +27,14 @@ const routeConfig = [
   {
     name: 'car',
     icon: 'car',
-    path: '/other',
+    path: '/nestedRouter',
+    component: loadable(() => import('../views/nestedRouter')),
     children: [
       {
-        name: 'car - lifeCycle',
-        path: '/car/lifeCycle',
-        component: loadable(() => import('../views/lifeCycle'))
-      },
-      {
-        name: 'car - scrollComp',
-        path: '/car/scrollComp',
-        component: loadable(() => import('../views/context'))
-      },
+        name: 'car - caseOne',
+        path: '/nestedRouter/caseOne',
+        component: loadable(() => import('../views/nestedRouter/caseOne'))
+      }
     ]
   },
 ]

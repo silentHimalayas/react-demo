@@ -14,7 +14,7 @@ class mainContent extends React.Component {
     return (
       <Switch>
         {routeConfig.map((item) => {
-          return (<Route exact path={item.path} component={item.component} key={item.path}></Route>)
+          return (<Route exact={!item.children} path={item.path} component={item.component} key={item.path}></Route>)
         })}
         <Redirect to="/willLeave"></Redirect>
       </Switch>
