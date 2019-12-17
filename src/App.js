@@ -12,10 +12,14 @@ class App extends React.Component {
   }
   render () {
     return (
-      <HashRouter className="app-main" >
-        <SideBar className="side-bar" />
-        <MainContent />
-      </HashRouter>
+      <div className="app-main" >
+        <HashRouter>
+          <SideBar/>
+          <div className="app-content">
+            <MainContent  />
+          </div>
+        </HashRouter>
+      </div>
     );
   }
 }

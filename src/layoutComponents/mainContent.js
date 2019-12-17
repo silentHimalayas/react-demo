@@ -8,7 +8,6 @@ class mainContent extends React.Component {
     this.state = {
       collapsed: false,
     };
-    console.log(111111111)
   }
 
   render () {

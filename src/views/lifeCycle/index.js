@@ -1,6 +1,5 @@
 import React from 'react';
 import Willleave from '../willLeave/index';
-import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-router-dom';
 import {Theme} from '../../context'
 
 

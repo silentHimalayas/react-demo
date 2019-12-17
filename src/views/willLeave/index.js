@@ -1,5 +1,4 @@
 import React from 'react';
-import {HashRouter, Switch, Route, NavLink, Redirect, withRouter} from 'react-router-dom';
 import {Theme} from '../../context'
 
  class willLeave extends React.Component {

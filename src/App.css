@@ -23,6 +23,16 @@
   color: #61dafb;
 }
 
+.app-main {
+  display: flex;
+  height: 100vh;
+}
+
+.app-content {
+  padding: 10px;
+  flex: 1;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
