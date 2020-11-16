@@ -1,7 +1,11 @@
 import React from 'react';
 import Willleave from '../willLeave/index';
+import FancyButton from '@/views/ref/index'
 import {Theme} from '../../context'
 
+const PropsComponent = React.forwardRef((props, ref) => {
+  return <div ref={ref}>{props.test}</div>
+}) 
 
 class lifeCycle extends React.Component {
 
@@ -24,8 +28,12 @@ class lifeCycle extends React.Component {
     this.state = {
       type: 1,
       nun: 2,
-      timer: null
+      timer: null,
+      test: 1
     }
+    this.refDom = React.createRef()
+    this.refDom2 = React.createRef()
+    this.test = 1
     this.toHome = this.toHome.bind(this);
   }
 
@@ -36,16 +44,15 @@ class lifeCycle extends React.Component {
 
   // 挂载 / 更新 阶段触发（涉及到重新渲染就触发此函数） 在 getDerivedStateFromProps 之后触发
   render () {
-    let {type} = this.state;
-    
+    // let {type} = this.state;
     return (
       <Theme.Provider value='shuaixin'>
         <div onClick={this.toHome}>
           <div>{this.state.type}12312</div>
-          {/* <Switch>
-            <Route exact path='/lifeCycle/asd' component={Willleave}></Route>
-          </Switch> */}
-          <Willleave  type={type}/>
+          <FancyButton ref={this.refDom}></FancyButton>
+          <PropsComponent ref={this.refDom2} test={this.test}>
+            <div>3333</div>
+          </PropsComponent>
         </div>
       </Theme.Provider>
     )
@@ -60,7 +67,6 @@ class lifeCycle extends React.Component {
     //   this.setState({type: 3})
     // }, 3000);
   }
-
 
   // 更新 阶段发出 在render之后。 该函数返回的数据会作为参数传递给componentDidUpdate
   // 注意⚠️ 如果该组件存在子组件，那么会先发出子组件的 getSnapshotBeforeUpdate 函数， 再触发该组件的 getSnapshotBeforeUpdate
@@ -91,9 +97,8 @@ class lifeCycle extends React.Component {
   }
   
   toHome () {
-    console.log(this.props.history, '>>>>>>>>>>>>>>>>this.props.history');
-    this.state.timer && clearTimeout(this.state.timer);
-    this.props.history.goBack();
+    console.log(this.refDom.current, '>>>>this.refDom')
+    console.log(this.refDom2.current, '>>>>this.refDom')
   }
 }
 

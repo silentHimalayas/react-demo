@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import loadable from '@loadable/component'
+import {Theme} from '@/context';
 const caseOne = loadable(() => import('./caseOne'))
 
 class nestedRouter extends React.Component {
@@ -16,6 +17,8 @@ class nestedRouter extends React.Component {
       type: 1,
       nun: 2
     }
+    this.divDom = React.createRef();
+    console.log(this.divDom, '>>>>>>>>>devDom');
     this.toHome = this.toHome.bind(this);
   }
   componentDidUpdate (prevProps) {
@@ -26,17 +29,28 @@ class nestedRouter extends React.Component {
     console.log(this, '>>>>>>>>>nestedRouter-------------render');
     
     return (
-      <div onClick={this.toHome}>
-        <div>nestedRouter</div>
-        <Route path={`${this.props.match.url}/caseOne`} component={caseOne}></Route>
-      </div>
+      <Theme.Consumer>
+        {({name}) => (
+          <div onClick={this.toHome}>
+            <div className="div" ref={this.divDom}>22222</div>
+            <span className="span" ref={this.divDom}>11111</span>
+            <div>nestedRouter{this.state.type}{name}</div>
+            <Route path={`${this.props.match.url}/caseOne`} component={caseOne}></Route>
+          </div>
+        )}
+      </Theme.Consumer>
+      
     )
   }
   componentDidMount () {
     console.log('>>>>>>>>nestedRouter-----------mount')
   }
   toHome () {
-    this.props.history.goBack();
+    this.setState({
+      type: 2
+    })
+    console.log(this.state.type, this.divDom, '>>>>>>')
+    // this.props.history.goBack();
   }
 }
 

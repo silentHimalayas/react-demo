@@ -10,7 +10,7 @@ import {Theme} from '../../context'
   //   };
   // }
 
-  static contextType = Theme
+  // static contextType = Theme
 
   constructor () {
     super();
@@ -24,7 +24,7 @@ import {Theme} from '../../context'
   render () {
     console.log(this.props, this.state, '>>>>>>>>>willLeave--------this props');
     return (
-      <div onClick={this.toHome}>willLeave{this.context}</div>
+      <div onClick={this.toHome}> willLeave</div>
     )
   }
 
