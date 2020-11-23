@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef, useMemo } from 'react';
 
 function StateExample() {
   const [count, setCount] = useState(0);
@@ -24,5 +24,20 @@ function EffectExample() {
     </div>
   );
 }
+function CallBackExample() {
+  const [count, setCount] = useState(0);
 
-export default StateExample
+  const ref = useRef(11)
+  const cb = useMemo(() => count, [count])
+  console.log(cb, ref, '>>>>cb')
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count)}>
+      Click me
+      </button>
+    </div>
+  );
+}
+
+export default CallBackExample

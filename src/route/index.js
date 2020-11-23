@@ -41,6 +41,11 @@ const routeConfig = [
     component: lazy(() => import('../views/hooks'))
   },
   {
+    name: 'redux',
+    path: '/redux',
+    component: lazy(() => import('../views/redux'))
+  },
+  {
     name: 'car',
     icon: 'car',
     path: '/nestedRouter',
